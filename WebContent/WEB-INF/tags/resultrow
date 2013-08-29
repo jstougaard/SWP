@@ -1,0 +1,8 @@
+<%@ tag %>
+<%@ attribute name="count" required="true" %>
+<%@ attribute name="total" required="true" %>
+<tr>
+	<td><jsp:doBody/></td>
+	<td><div style="background:#666;height:20px;width:${ 300 * count / total}"></div></td>
+	<td>${count} / ${total}</td>
+</tr>
