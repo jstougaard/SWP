@@ -6,4 +6,6 @@
 		<input name=question type=text size=40><br />
 		<input type=submit name=submit value="Register my question">
 	</form>
+	<br />
+    <a href="ask">&lt; Back</a>
 </poll:wrap>
