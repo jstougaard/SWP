@@ -1,7 +1,10 @@
 import java.io.*;
+
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
+@WebServlet("/vote")
 public class QuickPollVote extends HttpServlet {
   public void doPost(HttpServletRequest request, 
                      HttpServletResponse response)
