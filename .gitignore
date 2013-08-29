@@ -7,3 +7,9 @@
 *.war
 *.ear
 /build
+
+#ignore the eclipse configuration files
+.classpath
+.project
+.settings
+/.settings
