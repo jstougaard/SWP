@@ -13,3 +13,4 @@
 .project
 .settings
 /.settings
+.DS_Store
