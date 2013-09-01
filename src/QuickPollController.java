@@ -8,7 +8,6 @@ import javax.servlet.http.*;
 public class QuickPollController extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-	    HttpSession session = request.getSession();
 		String command = request.getServletPath();
 	    response.setContentType("text/html");
 	    
@@ -18,13 +17,13 @@ public class QuickPollController extends HttpServlet {
 		    	.forward(request,  response);
 	    } else if (command.equals("/results")) {
 	    	QuickPollModel model = new QuickPollModel(getServletContext());
-	    	session.setAttribute("model", model);
+	    	request.setAttribute("model", model);
 	    	getServletContext()
 		    	.getRequestDispatcher("/WEB-INF/results.jsp")
 		    	.forward(request,  response);
 	    } else {
 	    	QuickPollModel model = new QuickPollModel(getServletContext());
-	    	session.setAttribute("model", model);
+	    	request.setAttribute("model", model);
 	    	getServletContext()
 		    	.getRequestDispatcher("/WEB-INF/ask.jsp")
 		    	.forward(request,  response);
@@ -39,11 +38,14 @@ public class QuickPollController extends HttpServlet {
 		if (command.equals("/setup")) {
 			String q = request.getParameter("question");
 			model.setQuestion(q);
-			response.sendRedirect(path + "/ask");
+			request.setAttribute("question", q);
+	    	getServletContext()
+		    	.getRequestDispatcher("/WEB-INF/setup_confirmation.jsp")
+		    	.forward(request,  response);
 		} else if (command.equals("/ask")) {
 			String vote = request.getParameter("vote");
 			model.castVote(vote);
-			response.sendRedirect(path + "/results");
+			response.sendRedirect(path + "/results?success");
 		} else {
 			response.sendRedirect(path + "/ask");
 		}
