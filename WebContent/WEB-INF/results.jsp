@@ -16,5 +16,3 @@
     <br />
     <a href="ask">&lt; Back</a>
 </poll:wrap>
-
-

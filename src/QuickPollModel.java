@@ -20,6 +20,7 @@ public class QuickPollModel {
         options.put("a_yes", "Yes");
         options.put("b_no", "No");
         options.put("c_neither", "Don't know");
+        options.put("wwsde", "JAKOB");
         optionMap = Collections.unmodifiableMap(options);
     }
 	
