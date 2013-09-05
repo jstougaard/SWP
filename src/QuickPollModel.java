@@ -52,6 +52,7 @@ public class QuickPollModel {
 	}
 	
 	public synchronized void castVote(String key) {
+		if (key == null || key.equals("")) return;
 		Integer votes = getVotes(key);
 	    votes++;
 	    HashMap<String, Integer> map = getVotesMap();
