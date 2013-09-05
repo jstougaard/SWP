@@ -20,7 +20,6 @@ public class QuickPollModel {
         options.put("a_yes", "Yes");
         options.put("b_no", "No");
         options.put("c_neither", "Don't know");
-        options.put("wwsde", "JAKOB");
         optionMap = Collections.unmodifiableMap(options);
     }
 	
@@ -52,12 +51,11 @@ public class QuickPollModel {
 		return votes.intValue();
 	}
 	
-	public void castVote(String key) {
+	public synchronized void castVote(String key) {
 		Integer votes = getVotes(key);
 	    votes++;
 	    HashMap<String, Integer> map = getVotesMap();
 	    map.put(key, votes);
-	    int test = map.get(key);
 	    context.setAttribute("votesmap", map);
 	    
 	}
