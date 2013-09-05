@@ -24,13 +24,13 @@ public class QuickPollController extends HttpServlet{
 		
 		//If path is /, go directly to question.jsp for the client to provide a question to be voted for
 		if(path.equals("/")){
-	    	RequestDispatcher rd = request.getRequestDispatcher("question.jsp");
+	    	RequestDispatcher rd = request.getRequestDispatcher("/question.jsp");
 	        rd.forward(request, response);
 		}
 		
 		//If path is /ask, send a model with a RequestDispatcher to ask.jsp
 		else if(path.equals("/ask")){
-			RequestDispatcher rd = request.getRequestDispatcher("ask.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/ask.jsp");
 			request.setAttribute("model", model);
 			rd.forward(request, response);
 				
@@ -40,6 +40,11 @@ public class QuickPollController extends HttpServlet{
 			RequestDispatcher rd = request.getRequestDispatcher("results.jsp");
 			request.setAttribute("model", model);
 			rd.forward(request, response);
+		}
+		
+		else{
+			RequestDispatcher rd = request.getRequestDispatcher("/question.jsp");
+	        rd.forward(request, response);
 		}
 	  
 	}
