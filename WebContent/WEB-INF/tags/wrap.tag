@@ -1,5 +1,6 @@
 <%@ tag %>
 <%@ attribute name="title" required="true" %>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>${title}</title>
