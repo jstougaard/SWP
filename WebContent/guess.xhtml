@@ -2,6 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core"
       template="template.xhtml">
   <ui:define name="content">
@@ -9,8 +10,11 @@
       #{game.message}:
     </p>
     <h:form>
-      <h:inputText size="2" maxlength="2" value="#{game.number}"/>
+      <h:inputText id="guess" size="3" maxlength="3" value="#{game.number}">
+      	<f:validator validatorId="swp.GuessValidator" />
+      </h:inputText>
       <h:commandButton value="Guess" action="#{game.makeGuess}"/>
+      <h:message for="guess" style="color:red" />
     </h:form>
   </ui:define>
 </ui:composition>
