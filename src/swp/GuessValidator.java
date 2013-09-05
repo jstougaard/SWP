@@ -14,11 +14,21 @@ public class GuessValidator implements javax.faces.validator.Validator {
 			throws ValidatorException {
 		
 				 int guessValue = Integer.parseInt(o.toString());
-				 if (1 > guessValue || guessValue > 100 )	{
-					 FacesMessage msg = new FacesMessage(guessValue + " cannot be validated! Guess have to be a number between 1-100");
-					msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-					 throw new ValidatorException(msg);
-				 }
+				 
+				 
+				 if (o instanceof Integer) { 
+					 if (1 > guessValue || guessValue > 100 )	{
+						 FacesMessage msg = new FacesMessage(guessValue + " cannot be validated! Guess have to be a number between 1-100");
+						msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+						 throw new ValidatorException(msg);
+					 }
+				} else {
+					 FacesMessage msg = new FacesMessage(o.toString() + " cannot be validated! Guess have to be a number between 1-100");
+						msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+						 throw new ValidatorException(msg);
+					
+					
+				}
 	}
 
 }
