@@ -1,0 +1,25 @@
+<c:choose xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:when test="${game.number != game.secret}">
+    <ui:include src="thanks.xhtml"/>
+  </c:when>
+  <c:otherwise>
+    <ui:decorate template="template.xhtml">
+      <ui:define name="content">
+        <p>
+          You have the new highscore of
+          #{game.guesses} guesses!
+        </p>
+        <p>
+          Please enter your name:
+        </p>
+        <h:form>
+          <h:inputText value="#{game.name}"/>
+          <h:commandButton value="Register" action="#{game.register}"/>
+        </h:form>
+     </ui:define>
+    </ui:decorate>
+  </c:otherwise>
+</c:choose>

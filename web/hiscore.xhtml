@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      template="template.xhtml">
+  <ui:define name="content">
+    <c:choose>
+      <c:when test="#{hiscore.record gt 0}">
+        In #{hiscore.plays} plays of this game,
+        the record holder is #{hiscore.holder} with
+        <b>#{hiscore.record}</b> guesses.
+      </c:when>
+      <c:otherwise>
+        No winners yet.
+      </c:otherwise>
+    </c:choose>
+  </ui:define>
+</ui:composition>
