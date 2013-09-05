@@ -18,8 +18,11 @@ public class QuickPollController extends HttpServlet {
 	    } else if (command.equals("/results")) {
 	    	QuickPollModel model = new QuickPollModel(getServletContext());
 	    	request.setAttribute("model", model);
+	    	
+	    	String view = (model.getTotal() == 0 ? "results_empty.jsp" : "results.jsp");
+
 	    	getServletContext()
-		    	.getRequestDispatcher("/WEB-INF/results.jsp")
+		    	.getRequestDispatcher("/WEB-INF/"+view)
 		    	.forward(request,  response);
 	    } else {
 	    	QuickPollModel model = new QuickPollModel(getServletContext());
