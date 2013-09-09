@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <constant name="struts.devMode" value="true" />
+  <package name="default" extends="struts-default">
+    <action name="ask" class="Ask">
+      <result name="ASK">ask.jsp</result>
+      <result name="input">ask.jsp</result>
+      <result name="VOTED">vote_confirmation.jsp</result>
+      <result name="SETUP" type="redirectAction">setup</result>
+    </action>
+    <action name="results" class="Results">
+      <result name="SUCCESS">results.jsp</result>
+      <result name="EMPTY">results_empty.jsp</result>
+      <result name="SETUP" type="redirectAction">setup</result>
+    </action>
+    <action name="setup" class="Setup">
+      <result name="SAVED" type="redirectAction">ask</result>
+      <result name="input">setup.jsp</result>
+      <result name="SUCCESS">setup.jsp</result>
+    </action>
+  </package>
+</struts>
