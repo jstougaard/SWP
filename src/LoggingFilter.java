@@ -1,11 +1,10 @@
-
 import java.io.*;
-
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.*;
+import javax.servlet.annotation.WebFilter;
+
 @WebFilter("/*")
-public class QuickPollLoggingFilter implements Filter {
+public class LoggingFilter implements Filter {
   ServletContext context;
   int counter;
 
@@ -15,16 +14,13 @@ public class QuickPollLoggingFilter implements Filter {
 
   public void destroy() {}
 
-  public void doFilter(ServletRequest request, 
-                       ServletResponse response, 
-                       FilterChain chain) 
-      throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     String uri = ((HttpServletRequest)request).getRequestURI();
     int n = ++counter;
-    context.log("Starting processing request #"+n+" to ("+uri+")");
+    context.log("starting processing request #"+n+" ("+uri+")");
     long t1 = System.currentTimeMillis();
     chain.doFilter(request, response);
     long t2 = System.currentTimeMillis();
-    context.log("Done processing request #"+n+" in "+(t2-t1)+" ms");
+    context.log("done processing request #"+n+", "+(t2-t1)+" ms");
   }
 }
