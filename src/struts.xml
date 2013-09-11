@@ -5,6 +5,8 @@
 <struts>
   <constant name="struts.devMode" value="true" />
   <package name="default" extends="struts-default">
+    
+    
     <action name="ask" class="Ask">
       <result name="ASK">ask.jsp</result>
       <result name="input">ask.jsp</result>
