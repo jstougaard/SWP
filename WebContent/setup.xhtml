@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      template="template.xhtml">
+  <ui:define name="content">
+    <p>What is your question?</p>
+    <h:form>
+      <h:message for="question" styleClass="error" /><br />
+      <h:inputText size="40" value="#{model.question}" required="true" 
+      		requiredMessage="A question must be provided" 
+      		id="question"/>
+      <h:commandButton value="Save my question" action="#{poll.setup}"/>
+    </h:form>
+    
+    <c:if test="#{!empty model.question}">
+		<p><a href="ask.jsf">Go vote</a></p>
+	</c:if>
+  </ui:define>
+</ui:composition>

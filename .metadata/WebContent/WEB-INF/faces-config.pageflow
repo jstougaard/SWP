@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13788475477390" configfile="/SWP-JSF/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="guess.xhtml" id="pf13788475976231" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf137884780834911 pf137884780834912" inlinks="pf137884780834911 pf137884795012216 pf137884795012217" path="/setup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="thanks.xhtml" id="pf137884759762310" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf137884786366714" path="/results.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ask.xhtml" id="pf137884780834913" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf137884786366714 pf137884786366715 pf137884795012216" inlinks="pf137884780834912 pf137884786366715" path="/ask.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="results.xhtml" id="pf137884795012218" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf137884795012217" path="/results.xhtml"/>
+  <links id="pf137884780834911" target="pf13788475976231" source="pf13788475976231" outcome="WRONG"/>
+  <links id="pf137884780834912" target="pf137884780834913" source="pf13788475976231" outcome="SUCCESS" redirect="true"/>
+  <links id="pf137884786366714" target="pf137884759762310" source="pf137884780834913" outcome="VOTED" redirect="true"/>
+  <links id="pf137884786366715" target="pf137884780834913" source="pf137884780834913" outcome="WRONG"/>
+  <links id="pf137884795012216" target="pf13788475976231" source="pf137884780834913" outcome="SETUP" redirect="true"/>
+  <links id="pf137884795012217" target="pf13788475976231" source="pf137884795012218" outcome="SETUP" redirect="true"/>
+</pageflow:Pageflow>

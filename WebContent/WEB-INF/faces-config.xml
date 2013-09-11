@@ -5,4 +5,42 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
 
+	<navigation-rule>
+      <from-view-id>/setup.xhtml</from-view-id>
+      <navigation-case>
+        <from-outcome>WRONG</from-outcome>
+        <to-view-id>/setup.xhtml</to-view-id>
+      </navigation-case>
+      <navigation-case>
+        <from-outcome>SUCCESS</from-outcome>
+        <to-view-id>/ask.xhtml</to-view-id>
+        <redirect/>
+      </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+      <from-view-id>/ask.xhtml</from-view-id>
+      <navigation-case>
+        <from-outcome>WRONG</from-outcome>
+  	  	<to-view-id>/ask.xhtml</to-view-id>
+      </navigation-case>
+      <navigation-case>
+        <from-outcome>VOTED</from-outcome>
+  	  	<to-view-id>/results.xhtml</to-view-id>
+        <redirect/>
+      </navigation-case>
+      <navigation-case>
+        <from-outcome>SETUP</from-outcome>
+  	  	<to-view-id>/setup.xhtml</to-view-id>
+        <redirect/>
+      </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+      <from-view-id>/results.xhtml</from-view-id>
+      <navigation-case>
+        <from-outcome>SETUP</from-outcome>
+  	  	<to-view-id>/setup.xhtml</to-view-id>
+        <redirect/>
+      </navigation-case>
+    </navigation-rule>
+
 </faces-config>

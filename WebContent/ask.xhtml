@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      template="template.xhtml">
+ <f:metadata>
+    <f:event type="preRenderView" listener="#{poll.checkSetup}" />
+</f:metadata>
+  <ui:define name="content">
+    <h2>#{model.question} </h2>
+    <h:form>
+		<h:selectOneRadio value="#{poll.vote}">
+		   	<f:selectItems value="#{model.options}" />
+		</h:selectOneRadio>
+		<h:commandButton value="Vote" action="#{poll.castVote}"/>
+    </h:form>
+    
+    <p><a href="setup.jsf">New question</a></p>
+  </ui:define>
+</ui:composition>

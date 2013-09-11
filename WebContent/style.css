@@ -1,0 +1,4 @@
+.result-table td.label { padding:0px 10px; }
+.result-table td.bar { width:300px;background:#f1f1f1; }
+.result-table td.count { padding: 0px 10px; font-weight:bold;}
+.result-table .diagram-bar { background:#2668BD; height:30px;}
